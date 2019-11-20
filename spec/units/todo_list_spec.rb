@@ -8,7 +8,9 @@ describe ToDoList do
 
  it 'add something into the todolist' do
    todolist = ToDoList.new
-   expect(todolist.add(list_item)).to eq "Buy stamps" # 'have_content' is a capybara matcher used in feature tests; this is a unit test
+   todolist.add("Buy stamps") # need to pass variable into add method on todolist to test for it
+   expect(todolist.list_item)).to eq "Buy stamps" # list_item is an attr_reader
+   # (which is essentially a method, hence 'todolist.list_item' syntax)
  end
 
  it 'read all the items in the todo list' do
